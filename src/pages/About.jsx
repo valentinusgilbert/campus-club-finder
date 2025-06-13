@@ -3,8 +3,6 @@ function About() {
     <div className="w-full max-w-7xl mx-auto px-4 space-y-8 py-8">
       {/* Hero Section */}
       <section className="text-center space-y-8 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 rounded-3xl p-12 shadow-lg relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5"></div>
         <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 relative z-10">
           About <span className="text-primary bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Campus Club Finder</span>
         </h1>
