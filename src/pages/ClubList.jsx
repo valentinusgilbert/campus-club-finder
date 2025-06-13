@@ -32,23 +32,25 @@ function ClubList() {
               <option value="a-z" className="text-gray-900">Name A-Z</option>
               <option value="z-a" className="text-gray-900">Name Z-A</option>
             </select>
-            <div className="flex rounded-full shadow-lg overflow-hidden backdrop-blur-sm bg-white/10">
+            {/* Switch Toggle for Grid/List */}
+            <div className="flex rounded-full shadow-lg overflow-hidden backdrop-blur-sm bg-white/10 border border-white/30">
               <button
                 onClick={() => setViewMode('grid')}
-                className={`px-4 py-2 transition-all duration-200 flex items-center justify-center ${
+                className={`px-4 py-2 transition-all duration-200 flex items-center justify-center relative z-10 ${
                   viewMode === 'grid'
-                    ? 'bg-white text-primary'
+                    ? 'bg-gray-400 text-primary shadow-sm'
                     : 'bg-transparent text-white/70'
                 }`}
                 aria-label="Grid View"
+                style={{ borderRight: '1px solid rgba(255,255,255,0.15)' }}
               >
                 <Squares2X2Icon className="h-5 w-5" />
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`px-4 py-2 transition-all duration-200 flex items-center justify-center ${
+                className={`px-4 py-2 transition-all duration-200 flex items-center justify-center relative z-10 ${
                   viewMode === 'list'
-                    ? 'bg-white text-primary'
+                    ? 'bg-gray-400 text-primary shadow-sm'
                     : 'bg-transparent text-white/70'
                 }`}
                 aria-label="List View"
