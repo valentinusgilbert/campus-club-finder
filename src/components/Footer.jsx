@@ -5,6 +5,14 @@ function Footer() {
         <p className="text-sm">
           Valentinus Gilbert Sanjaya - 2540126430
         </p>
+        <a 
+          href="https://valentinusgilbert.vercel.app/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+        >
+          Portfolio Website
+        </a>
       </div>
     </footer>
   );
