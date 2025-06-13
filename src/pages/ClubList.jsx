@@ -15,45 +15,54 @@ function ClubList() {
   });
 
   return (
-    <div className="space-y-8">
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 bg-white p-6 rounded-2xl shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-900">Campus Clubs</h1>
-        <div className="flex items-center gap-4">
-          <select
-            value={sortOrder}
-            onChange={(e) => setSortOrder(e.target.value)}
-            className="rounded-xl border-gray-300 shadow-sm focus:border-primary focus:ring-primary bg-white px-4 py-2"
-          >
-            <option value="a-z">Name A-Z</option>
-            <option value="z-a">Name Z-A</option>
-          </select>
-          <div className="flex rounded-xl shadow-sm overflow-hidden">
-            <button
-              onClick={() => setViewMode('grid')}
-              className={`px-4 py-2 transition-colors duration-200 ${
-                viewMode === 'grid'
-                  ? 'bg-primary text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-50'
-              }`}
+    <div className="w-full max-w-7xl mx-auto px-4 py-8 space-y-8">
+      {/* Header Section */}
+      <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-8 text-white">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+          <div>
+            <h1 className="text-4xl font-bold mb-2">Campus Clubs</h1>
+            <p className="text-lg opacity-90">Discover and join clubs that match your interests</p>
+          </div>
+          <div className="flex items-center gap-4">
+            <select
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+              className="rounded-xl border-0 shadow-lg focus:ring-2 focus:ring-white/50 bg-white/10 text-white backdrop-blur-sm px-4 py-2"
             >
-              <Squares2X2Icon className="h-5 w-5" />
-            </button>
-            <button
-              onClick={() => setViewMode('list')}
-              className={`px-4 py-2 transition-colors duration-200 ${
-                viewMode === 'list'
-                  ? 'bg-primary text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-50'
-              }`}
-            >
-              <ListBulletIcon className="h-5 w-5" />
-            </button>
+              <option value="a-z" className="text-gray-900">Name A-Z</option>
+              <option value="z-a" className="text-gray-900">Name Z-A</option>
+            </select>
+            <div className="flex rounded-full shadow-lg overflow-hidden backdrop-blur-sm bg-white/10">
+              <button
+                onClick={() => setViewMode('grid')}
+                className={`px-4 py-2 transition-all duration-200 flex items-center justify-center ${
+                  viewMode === 'grid'
+                    ? 'bg-white text-primary'
+                    : 'bg-transparent text-white/70'
+                }`}
+                aria-label="Grid View"
+              >
+                <Squares2X2Icon className="h-5 w-5" />
+              </button>
+              <button
+                onClick={() => setViewMode('list')}
+                className={`px-4 py-2 transition-all duration-200 flex items-center justify-center ${
+                  viewMode === 'list'
+                    ? 'bg-white text-primary'
+                    : 'bg-transparent text-white/70'
+                }`}
+                aria-label="List View"
+              >
+                <ListBulletIcon className="h-5 w-5" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
+      {/* Clubs Grid */}
       <div
-        className={`grid gap-8 ${
+        className={`grid gap-6 ${
           viewMode === 'grid'
             ? 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'
             : 'grid-cols-1'
@@ -62,12 +71,12 @@ function ClubList() {
         {sortedClubs.map((club) => (
           <div
             key={club.id}
-            className={`bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-200 hover:shadow-xl ${
+            className={`bg-gray-50 rounded-3xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 hover:shadow-xl ${
               viewMode === 'list' ? 'flex' : ''
             }`}
           >
             <div
-              className={`${
+              className={`relative ${
                 viewMode === 'list'
                   ? 'w-1/3'
                   : 'aspect-w-16 aspect-h-9'
@@ -78,15 +87,16 @@ function ClubList() {
                 alt={club.name}
                 className="w-full h-full object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
             </div>
             <div className={`p-6 ${viewMode === 'list' ? 'w-2/3' : ''}`}>
-              <h2 className="text-2xl font-semibold text-gray-900 mb-3">
+              <h2 className="text-2xl font-bold text-gray-900 mb-3">
                 {club.name}
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">{club.shortDescription}</p>
               <Link
                 to={`/clubs/${club.id}`}
-                className="inline-block bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-dark transition-colors duration-200 shadow-md hover:shadow-lg"
+                className="inline-block bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white px-6 py-3 rounded-xl hover:from-blue-500 hover:via-indigo-500 hover:to-purple-500 transition-all duration-300 shadow-md hover:shadow-lg font-semibold"
               >
                 View Details
               </Link>
