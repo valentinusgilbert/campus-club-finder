@@ -91,7 +91,7 @@ function ClubDetail() {
               <DialogTrigger asChild>
                 <button
                   onClick={handleJoinToggle}
-                  className={`px-8 py-3 rounded-xl text-base font-semibold transition-all duration-200 transform hover:scale-105 w-fit ${
+                  className={`cursor-pointer px-8 py-3 rounded-xl text-base font-semibold transition-all duration-200 transform hover:scale-105 w-fit ${
                     isJoined
                       ? 'bg-red-500 text-white hover:bg-red-600'
                       : 'bg-blue-600 text-white hover:bg-blue-700'
@@ -112,13 +112,13 @@ function ClubDetail() {
                 <DialogFooter className="flex gap-2 justify-end mt-4">
                   <button
                     onClick={() => setIsDialogOpen(false)}
-                    className="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100"
+                    className="cursor-pointer px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-100"
                   >
                     Cancel
                   </button>
                   <button
                     onClick={dialogType === 'join' ? handleConfirmJoin : handleConfirmLeave}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium ${
+                    className={`cursor-pointer px-4 py-2 rounded-lg text-sm font-medium ${
                       dialogType === 'join'
                         ? 'bg-blue-600 text-white hover:bg-blue-700'
                         : 'bg-red-500 text-white hover:bg-red-600'
